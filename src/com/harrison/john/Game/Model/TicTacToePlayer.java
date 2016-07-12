@@ -36,7 +36,7 @@ public class TicTacToePlayer {
             System.out.println("legal move swag");
             fitness += 10;
         }else{
-            System.out.println("l2p noob, illegal move");
+            System.out.println("l2p noob, illegal move " + decision);
         }
         if(board.checkBoard(controller.getMyMarker())){//managed to win
             fitness+=100;
@@ -52,5 +52,9 @@ public class TicTacToePlayer {
 
     public void resetFitness(){
         this.fitness = 0;
+    }
+
+    public ArrayList<Double> getBrain(){
+        return brain.getWeights();
     }
 }

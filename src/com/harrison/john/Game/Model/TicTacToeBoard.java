@@ -11,7 +11,7 @@ public class TicTacToeBoard {
     private int numMarkersPlaced = 0;
 
     public static int TIC_TAC_TOE_X = 1;
-    public static int TIC_TAC_TOE_O = 2;
+    public static int TIC_TAC_TOE_O = -1;
 
 
     public TicTacToeBoard(){

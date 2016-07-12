@@ -71,6 +71,8 @@ public class NeuralNet {
 
     public ArrayList<Double> update( ArrayList<Double> inputs){ //this function is a TDA nightmare rn
 
+        System.out.println(inputs);
+
         ArrayList<Double> outputs = new ArrayList<>();
         int weight = 0;
 
@@ -85,22 +87,24 @@ public class NeuralNet {
             if(i > 0){
                 inputs = outputs;
             }
-            outputs.clear();
+            outputs = new ArrayList<>();
             weight = 0;
             for(int j = 0; j < neuronLayers.get(i).getNumNeurons(); ++j){
                 double netInput = 0;
                 int numInputs = neuronLayers.get(i).getNeuron(j).getNumInputs();
 
                 for(int k = 0; k < numInputs; ++k) {//recheck
-                    netInput += neuronLayers.get(i).getNeuron(j).getWeight(k);
+                    //weights * inputs
+                    netInput += neuronLayers.get(i).getNeuron(j).getWeight(k) * inputs.get(weight++);
                 }//end for k
                 //add in bias
-                netInput += neuronLayers.get(i).getNeuron(j).getThreshhold();
-
+                netInput += neuronLayers.get(i).getNeuron(j).getThreshhold() * -1;
+                //System.out.println("net input is: " + netInput);
                 outputs.add(sigmoid(netInput, Parameters.ACTIVATION_RESPONSE));
                 weight = 0;
             }//end for j
         }//end for i
+        System.out.println(outputs);
         return outputs;
     }
 

@@ -16,7 +16,7 @@ public class Main {
 
         TicTacToePlayer playerx = new TicTacToePlayer(new TicTacToeController(TicTacToeBoard.TIC_TAC_TOE_X, board));
         TicTacToePlayer playero = new TicTacToePlayer(new TicTacToeController(TicTacToeBoard.TIC_TAC_TOE_O, board));
-
+        System.out.println(playerx.getBrain());
         GeneticAlgorithm genAlg = new TestGeneticAlgorithm(2, .2,.75);
 //        while(!board.isBoardFull()){
 //            playerx.update(board);
@@ -26,6 +26,13 @@ public class Main {
 //        }
         playerx.update(board);
         System.out.println(board);
+
+//        board.addMarker(0,0,TicTacToeBoard.TIC_TAC_TOE_O);
+//        board.addMarker(0,1,TicTacToeBoard.TIC_TAC_TOE_O);
+//        board.addMarker(0,2,TicTacToeBoard.TIC_TAC_TOE_O);
+//        board.addMarker(2,2,TicTacToeBoard.TIC_TAC_TOE_O);
+//        board.addMarker(2,1,TicTacToeBoard.TIC_TAC_TOE_O);
+//        board.addMarker(2,0,TicTacToeBoard.TIC_TAC_TOE_O);
         playero.update(board);
         System.out.println(board);
         playerx.update(board);
